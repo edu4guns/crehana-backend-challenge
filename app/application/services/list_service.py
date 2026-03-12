@@ -2,9 +2,7 @@ from typing import List
 
 from sqlalchemy.orm import Session
 
-from app.domain.exceptions import NotFoundError
 from app.domain.schemas import ListCreate, ListRead, ListUpdate, ListWithCompletion
-from app.infrastructure.db.base import get_db
 from app.infrastructure.db.repositories import ListRepository, TaskRepository
 
 
@@ -46,11 +44,4 @@ class ListService:
 
     def delete_list(self, list_id: int) -> None:
         self.lists.delete(list_id)
-
-
-def get_list_service(db: Session = next(get_db())) -> ListService:  # type: ignore[arg-type]
-    # Esta función se usa sólo como helper en routers; para tests se pueden crear instancias manualmente.
-    if not isinstance(db, Session):
-        raise NotFoundError("Dependencia de base de datos inválida")
-    return ListService(db)
 

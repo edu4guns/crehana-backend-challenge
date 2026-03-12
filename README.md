@@ -1,4 +1,4 @@
-# Crehana Backend Challenge – Todo API
+# Crehana Backend Challenge
 
 El foco estuvo en: diseño limpio de API, arquitectura por capas sencilla, uso de herramientas estándar en Python y un flujo de desarrollo razonable (tests, linters, Docker).
 

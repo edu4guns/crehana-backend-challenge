@@ -5,7 +5,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    app_name: str = "Todo Backend Challenge"
+    app_name: str = "Backend Challenge"
     database_url: str = Field(
         default="postgresql+psycopg2://postgres:postgres@db:5432/crehana_db",
         alias="DATABASE_URL",

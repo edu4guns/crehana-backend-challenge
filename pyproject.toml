@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "todo-backend-challenge"
+name = "backend-challenge"
 version = "0.1.0"
 description = "Desafío técnico backend - gestor de listas y tareas con FastAPI."
 requires-python = ">=3.10"
@@ -17,6 +17,8 @@ dependencies = [
   "psycopg2-binary>=2.9.9",
   "python-jose[cryptography]>=3.3.0",
   "passlib[bcrypt]>=1.7.4",
+  "email-validator>=2.0.0",
+  "python-multipart>=0.0.9",
 ]
 
 [project.optional-dependencies]

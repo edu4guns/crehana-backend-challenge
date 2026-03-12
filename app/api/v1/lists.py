@@ -1,13 +1,19 @@
 from typing import List
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from sqlalchemy.orm import Session
 
-from app.application.services.list_service import ListService, get_list_service
+from app.application.services.list_service import ListService
 from app.domain.schemas import ListCreate, ListRead, ListUpdate, ListWithCompletion
 from app.domain.exceptions import NotFoundError
+from app.infrastructure.db.base import get_db
 
 
 router = APIRouter()
+
+
+def get_list_service(db: Session = Depends(get_db)) -> ListService:  # noqa: B008
+    return ListService(db)
 
 
 @router.post("/", response_model=ListRead, status_code=status.HTTP_201_CREATED)
